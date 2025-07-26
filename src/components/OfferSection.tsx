@@ -12,8 +12,11 @@ const OfferSection = () => {
           <p className="text-xl mb-2 opacity-90">
             <span className="line-through">Actual Price: ₹20,999</span> – You Save Over 50%
           </p>
-          <p className="text-lg mb-8 opacity-80">
+          <p className="text-lg mb-4 opacity-80">
             Only available for the first 5 clients this month
+          </p>
+          <p className="text-sm mb-8 opacity-70">
+            *Plus hosting and domain charges extra
           </p>
           
           <div className="flex items-center justify-center gap-2 mb-8">
