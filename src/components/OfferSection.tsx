@@ -48,10 +48,10 @@ const OfferSection = () => {
             </Button>
             
             <Button 
-              variant="outline" 
+              variant="secondary" 
               size="lg"
               onClick={() => window.open('https://calendly.com/smartaistudio2025/30min', '_blank')}
-              className="group border-white text-white hover:bg-white hover:text-primary"
+              className="group text-primary bg-white hover:bg-gray-100"
             >
               <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
               Schedule Free Call
