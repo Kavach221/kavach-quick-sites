@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, MessageCircle } from "lucide-react";
-import kavachPhoto from "@/assets/kavach-photo.jpg";
+const kavachPhoto = "/lovable-uploads/47f251c8-b3a2-4e67-b76b-17ce76d5c765.png";
 
 const HeroSection = () => {
   const scrollToPortfolio = () => {
@@ -45,7 +45,7 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* Right side - Photo */}
+          {/* Right side - Photo & Video */}
           <div className="flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-20 scale-110"></div>
@@ -54,6 +54,19 @@ const HeroSection = () => {
                 alt="Kavach Sharma - Website Designer"
                 className="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-full shadow-card border-4 border-card"
               />
+              
+              {/* Intro Video Section */}
+              <div className="mt-8 text-center">
+                <h3 className="text-lg font-semibold text-foreground mb-4">Watch My Introduction</h3>
+                <div className="relative aspect-video max-w-md mx-auto rounded-lg overflow-hidden shadow-card">
+                  <iframe
+                    src="https://drive.google.com/file/d/1-Fz9OX6N_LszgCzFsWCIn-sNcKg1WNWn/preview"
+                    className="w-full h-full"
+                    allow="autoplay"
+                    title="Kavach Sharma Introduction Video"
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
