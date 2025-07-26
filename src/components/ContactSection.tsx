@@ -4,29 +4,53 @@ import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle, Mail, Instagram } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { contactSchema, type ContactFormData } from "@/schemas/contactSchema";
+import { useRateLimit } from "@/hooks/useRateLimit";
+import DOMPurify from 'dompurify';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    project: ''
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      project: ''
+    }
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Since we don't have a backend, we'll show a success message and suggest WhatsApp
+  // Rate limiting: max 3 submissions per 5 minutes
+  const { isRateLimited, recordAttempt, getRemainingTime } = useRateLimit({
+    maxAttempts: 3,
+    windowMs: 5 * 60 * 1000 // 5 minutes
+  });
+
+  const handleSubmit = (data: ContactFormData) => {
+    if (isRateLimited) {
+      toast({
+        title: "Too many attempts",
+        description: `Please wait ${getRemainingTime()} seconds before trying again.`,
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Sanitize input data
+    const sanitizedData = {
+      name: DOMPurify.sanitize(data.name.trim()),
+      email: DOMPurify.sanitize(data.email.trim()),
+      project: DOMPurify.sanitize(data.project.trim())
+    };
+
+    recordAttempt();
+    
     toast({
       title: "Thank you for your interest!",
       description: "Please reach out via WhatsApp for faster response.",
     });
-    setFormData({ name: '', email: '', project: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    
+    form.reset();
   };
 
   return (
@@ -96,7 +120,7 @@ const ContactSection = () => {
               Send a Message
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Your Name
@@ -104,12 +128,13 @@ const ContactSection = () => {
                 <Input
                   type="text"
                   id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
+                  {...form.register("name")}
                   placeholder="Enter your full name"
+                  className={form.formState.errors.name ? "border-destructive" : ""}
                 />
+                {form.formState.errors.name && (
+                  <p className="text-sm text-destructive mt-1">{form.formState.errors.name.message}</p>
+                )}
               </div>
               
               <div>
@@ -119,12 +144,13 @@ const ContactSection = () => {
                 <Input
                   type="email"
                   id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
+                  {...form.register("email")}
                   placeholder="your.email@example.com"
+                  className={form.formState.errors.email ? "border-destructive" : ""}
                 />
+                {form.formState.errors.email && (
+                  <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
+                )}
               </div>
               
               <div>
@@ -133,17 +159,24 @@ const ContactSection = () => {
                 </label>
                 <Textarea
                   id="project"
-                  name="project"
-                  value={formData.project}
-                  onChange={handleChange}
-                  required
+                  {...form.register("project")}
                   placeholder="Tell me about your project requirements..."
                   rows={4}
+                  className={form.formState.errors.project ? "border-destructive" : ""}
                 />
+                {form.formState.errors.project && (
+                  <p className="text-sm text-destructive mt-1">{form.formState.errors.project.message}</p>
+                )}
               </div>
               
-              <Button type="submit" variant="default" size="lg" className="w-full">
-                Send Message
+              <Button 
+                type="submit" 
+                variant="default" 
+                size="lg" 
+                className="w-full"
+                disabled={isRateLimited}
+              >
+                {isRateLimited ? `Wait ${getRemainingTime()}s` : "Send Message"}
               </Button>
             </form>
           </div>
