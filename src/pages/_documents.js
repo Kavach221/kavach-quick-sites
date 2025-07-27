@@ -9,7 +9,6 @@ export default function Document() {
         <meta name="google-site-verification" content="5vsU5E6ZpC1QqZdbJujP4m9Rkc228KVxF0Kh0XviJDQ" />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Websites by Kavach - ₹9999 Me Website</title>
         <meta name="description" content="Website banwaye sirf ₹9999 me - Kavach Sharma se." />
         <meta name="keywords" content="website, ₹9999 website India, Kavach Sharma" />
         <meta name="author" content="Kavach Sharma" />
