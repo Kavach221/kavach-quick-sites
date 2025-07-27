@@ -5,7 +5,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="en">
-      <meta name="google-site-verification" content="5vsU5E6ZpC1QqZdbJujP4m9Rkc228KVxF0Kh0XviJDQ" />
+      <Head>
         <meta name="google-site-verification" content="5vsU5E6ZpC1QqZdbJujP4m9Rkc228KVxF0Kh0XviJDQ" />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,4 +27,4 @@ export default function Document() {
       </body>
     </Html>
   );
-    }
+}
