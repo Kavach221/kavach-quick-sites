@@ -62,12 +62,12 @@ const HeroSection = () => {
                   <iframe
                     width="100%"
                     height="315"
-                    src="https://www.youtube.com/embed/htbmiDCXjGo?autoplay=1&mute=1&loop=1&playlist=htbmiDCXjGo"
+                    src="https://www.youtube.com/embed/htbmiDCXjGo"
                     title="Intro Video by Kavach"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                    className="w-full"
+                    className="w-full border-0"
                   ></iframe>
                 </div>
               </div>
