@@ -58,12 +58,16 @@ const HeroSection = () => {
               {/* Intro Video Section */}
               <div className="mt-8 text-center">
                 <h3 className="text-lg font-semibold text-foreground mb-4">Watch My Introduction</h3>
-                <div className="relative aspect-video max-w-md mx-auto rounded-lg overflow-hidden shadow-card">
+                <div className="relative max-w-md mx-auto rounded-lg overflow-hidden shadow-card">
                   <iframe
-                    src="https://drive.google.com/file/d/1-Fz9OX6N_LszgCzFsWCIn-sNcKg1WNWn/preview"
-                    className="w-full h-full"
-                    allow="autoplay"
-                    title="Kavach Sharma Introduction Video"
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/htbmiDCXjGo?autoplay=1&mute=1&loop=1&playlist=htbmiDCXjGo"
+                    title="Intro Video by Kavach"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full"
                   ></iframe>
                 </div>
               </div>
