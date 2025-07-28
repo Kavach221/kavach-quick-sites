@@ -55,14 +55,15 @@ const HeroSection = () => {
                 className="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-full shadow-card border-4 border-card"
               />
               
-              {/* Special Offer Badge */}
+              {/* Call to Action Badge */}
               <div className="mt-8 text-center">
                 <div className="inline-block bg-gradient-primary p-6 rounded-2xl shadow-elegant border border-primary/20">
                   <div className="text-white">
-                    <h3 className="text-2xl font-bold mb-2">🚀 Limited Time Offer</h3>
-                    <p className="text-lg mb-3">Get Your Website + FREE Logo Design</p>
-                    <div className="text-3xl font-bold mb-2">₹7,999 Only</div>
-                    <p className="text-sm opacity-90">Usually ₹12,000 • Save ₹4,001</p>
+                    <h3 className="text-xl font-bold mb-2">💼 Want to See Live Examples?</h3>
+                    <p className="text-lg mb-3">Message me for FREE website previews</p>
+                    <div className="text-2xl font-bold mb-2">Starting at ₹9,999</div>
+                    <p className="text-sm opacity-90 mb-3">🎯 See actual websites I've built before you decide</p>
+                    <p className="text-sm font-semibold">📱 WhatsApp me now for instant previews!</p>
                   </div>
                 </div>
               </div>
