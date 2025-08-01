@@ -27,37 +27,43 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-card px-4" id="portfolio">
+    <section className="py-20 bg-card px-4" id="portfolio" itemScope itemType="https://schema.org/CreativeWork">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <header className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            My Recent Work
+            Professional Website Portfolio - Recent Projects in Delhi
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See how I've helped businesses establish their online presence
+            Explore successful website projects for cafes, restaurants, clubs, and businesses - showcasing fast delivery and professional design
           </p>
-        </div>
+        </header>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {portfolioItems.map((item, index) => (
-            <div 
+            <article 
               key={index}
               className="bg-background rounded-lg shadow-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden group"
+              itemScope
+              itemType="https://schema.org/CreativeWork"
             >
-              <div className="aspect-video overflow-hidden">
+              <figure className="aspect-video overflow-hidden">
                 <img
                   src={item.image}
-                  alt={item.title}
+                  alt={`${item.title} - Professional website design project by Kavach Sharma featuring ${item.description.toLowerCase()}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  itemProp="image"
+                  loading="lazy"
+                  width="400"
+                  height="300"
                 />
-              </div>
+              </figure>
               
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {item.title}
+                <h3 className="text-xl font-semibold text-foreground mb-3" itemProp="name">
+                  {item.title} - Website Design Project
                 </h3>
                 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed" itemProp="description">
                   {item.description}
                 </p>
                 
@@ -71,7 +77,7 @@ const PortfolioSection = () => {
                   View Live Site
                 </Button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

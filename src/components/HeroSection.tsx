@@ -8,18 +8,19 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center bg-background px-4 py-20">
+    <section className="min-h-screen flex items-center bg-background px-4 py-20" itemScope itemType="https://schema.org/Service">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-              Get Your Own Website in Just{" "}
+          <header className="space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight" itemProp="name">
+              Professional Website Designer in Delhi - Get Your Website in Just{" "}
               <span className="text-primary">7 Days</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Hi, I'm <span className="font-semibold text-foreground">Kavach Sharma</span> – I help cafes, clubs, artists, and small businesses go online fast.
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed" itemProp="description">
+              Hi, I'm <span className="font-semibold text-foreground" itemProp="provider" itemScope itemType="https://schema.org/Person">
+                <span itemProp="name">Kavach Sharma</span></span> – Professional website designer specializing in fast, SEO-optimized websites for cafes, restaurants, clubs, artists, and small businesses in Delhi and NCR.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -43,7 +44,7 @@ const HeroSection = () => {
                 Message on WhatsApp
               </Button>
             </div>
-          </div>
+          </header>
           
           {/* Right side - Photo & Video */}
           <div className="flex justify-center">
@@ -51,8 +52,12 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-20 scale-110"></div>
               <img
                 src={kavachPhoto}
-                alt="Kavach Sharma - Website Designer"
+                alt="Kavach Sharma - Professional Website Designer in Delhi specializing in fast website delivery for cafes, restaurants, clubs and small businesses"
                 className="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-full shadow-card border-4 border-card"
+                itemProp="image"
+                loading="eager"
+                width="384"
+                height="384"
               />
               
               {/* Call to Action Badge */}
