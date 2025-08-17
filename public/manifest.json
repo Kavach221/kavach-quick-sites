@@ -1,0 +1,20 @@
+{
+  "name": "Kavach Sharma - Website Designer Delhi",
+  "short_name": "Kavach Sharma",
+  "description": "Professional website designer in Delhi. Get websites in 7 days for cafes, restaurants, clubs & businesses. Starting ₹9,999.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "lang": "en-IN",
+  "scope": "/",
+  "categories": ["business", "productivity", "utilities"]
+}
